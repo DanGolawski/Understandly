@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Understandly - Find the Answer</title>
+    <link rel="icon" href="./resources/logo.ico">
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <!-- Load TensorFlow.js. This is required to use the qna model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+    <!-- Load the qna model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/qna"> </script>
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="controller.js"></script>
+    <script src="otherComponentsManager.js"></script>
+    <script src="uploadComponent.js"></script>
+    <script src="questionComponent.js"></script>
+    <script src="bertService.js"></script>
+</head>
+
+<body>
+
+    <div id="indexContainer">
+        <!-- START CIRCLE -->
+        <div id="startButton" class="circleComponent">
+            <div class="circleComponentIcon">
+                <h1 id="answerField" class="textField">CLICK TO START</h1>
+            </div>
+        </div>
+        <!-- UPLOAD CIRCLE -->
+        <div id="uploadComponent" class="circleComponent">
+            <div class="circleComponentIcon" id="uploadIcon">
+                <input type="file" id="fileInput">
+            </div>
+            <div class="circleComponentIcon loadingIcon" id="uploadLoadingIcon"></div>
+        </div>
+        <!-- QUESTION CIRCLE -->
+        <div id="questionComponent" class="circleComponent">
+            <div id="subContainer" class="circleComponentIcon">
+                <input type="text" id="questionField" autocomplete="off" placeholder="Your Question">
+                <h1 id="answerField" class="textField"></h1>
+            </div>
+            <div class="circleComponentIcon loadingIcon" id="questionLoadingIcon"></div>
+        </div>
+
+        <div class="satelite" id="aboutAppComponent" style="margin-top: 100px; margin-left: 400px;">
+            <span id="description"></span>
+        </div>
+
+        <div class="satelite" id="manualComponent" style="bottom: 200px; margin-left: 350px;">
+            <span id="description"></span>
+        </div>
+
+        <div class="satelite" id="contactComponent" style="top: 300px; right: 350px;">
+            <span id="description"></span>
+        </div>
+
+        <div class="satelite" id="retryComponent" style="top: 100px; right: 400px;">
+            <span id="description"></span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
