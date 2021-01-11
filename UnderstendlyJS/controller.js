@@ -42,13 +42,14 @@ class Controller {
             } else {
                 this.findAlternativeAnswer(question);
             }
-        });
+        }).catch(error => alert(`An error occured. Please try again. Error message : ${error}`));
     }
 
     findAlternativeAnswer(question) {
         this.bertService.getAlternativeAnswer(question, this.textToProcess).then(answer => {
-            this.showAnswer(answer)
-        });
+            this.showAnswer(answer);
+            alert('There is no certainty this is correct answer')
+        }).catch(error => alert(`An error occured. Please try again. Error message : ${error}`));
     }
 
     showAnswer(answer) {

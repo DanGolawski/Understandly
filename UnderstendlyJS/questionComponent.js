@@ -27,8 +27,12 @@ class QuestionComponent {
         const self = this;
         inputField.addEventListener("keyup", key => {
             if (key.code === 'Enter') {
+                const text = inputField.value;
+                if (!text) {
+                    alert('Please, write a question!')
+                    return;
+                }
                 self.componentBody.querySelector('#questionLoadingIcon').style.visibility = 'visible';
-                let text = inputField.value;
                 self.notifyUserAsked(text);
                 inputField.value = '';
             }

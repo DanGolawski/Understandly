@@ -9,17 +9,17 @@ class BertService {
             qna.load().then(model => {
                 model.findAnswers(question, passage).then(answers => {
                     resolve(answers);
-                },
-                    error => {
-                        console.log(error);
-                        reject(error)
-                    });
+                }).catch(error => {
+                    reject(`1, ${error}`);
+                });
+            }).catch(error => {
+                reject(`2, ${error}`);
             });
         });
         return answersPromise;
     }
 
-    async getAlternativeAnswer(question, passage) {
+    getAlternativeAnswer(question, passage) {
         const answerPromise = new Promise((resolve, reject) => {
             $.ajax({
                 contentType: "application/json; charset=utf-8",
@@ -35,9 +35,9 @@ class BertService {
                     resolve(data);
                 },
                 error: function () {
-                    reject("Device control failed");
+                    reject(new Error("An error occured. Please refresh the page or try later"));
                 }
-            });
+            }).catch(error => reject(error));
         });
         return answerPromise;
     }

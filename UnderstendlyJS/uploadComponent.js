@@ -74,7 +74,6 @@ class UploadComponent {
     }
 
     notifyDataLoaded(text) {
-        console.log('NOTIFICATION')
         this.handleViewChange();
         this.appController.handleTextUpload(text);
     }

@@ -104,19 +104,13 @@ app = Flask(__name__)
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-# @app.route('/findanswer')
-# def handle_question():
-#     request_body = request.data.get_json()
-#     return request_body
-
 
 @app.route('/findanswer', methods=['POST'])
 @cross_origin()
 def handle_question():
     content = request.get_json()
-    print('QUESTION', content['question'])
-    x = get_answer(content['question'], content['text'])
-    return jsonify(x)
+    answers = get_answer(content['question'], content['text'])
+    return jsonify(answers)
 
 
 if __name__ == '__main__':
