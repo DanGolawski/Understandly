@@ -11,6 +11,7 @@ class QuestionComponent {
     constructor(selector, controller) {
         this.appController = controller;
         this.componentBody = document.querySelector(selector);
+        this.subscribeQuestion();
     }
 
     start() {
@@ -19,10 +20,13 @@ class QuestionComponent {
     }
 
     handleAsking() {
+        console.log('HANDLE ASKING')
         this.componentBody.querySelector('#questionField').style.visibility = 'visible';
         this.componentBody.querySelector('#answerField').style.visibility = 'hidden';
         this.componentBody.querySelector('#questionLoadingIcon').style.visibility = 'hidden';
+    }
 
+    subscribeQuestion() {
         const inputField = this.componentBody.querySelector('#questionField');
         const self = this;
         inputField.addEventListener("keyup", key => {

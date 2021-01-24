@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4d077314-21cf-42cd-9552-28d185200920" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UnderstendlyJS/bertService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UnderstendlyJS/bertService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UnderstendlyJS/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UnderstendlyJS/controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UnderstendlyJS/uploadComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UnderstendlyJS/uploadComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UnderstendlyJS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../UnderstendlyJS/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UnderstendlyJS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../UnderstendlyJS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UnderstendlyJS/otherComponentsManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UnderstendlyJS/otherComponentsManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UnderstendlyJS/questionComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../UnderstendlyJS/questionComponent.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +87,9 @@
       <workItem from="1609532031266" duration="499000" />
       <workItem from="1609792964216" duration="1412000" />
       <workItem from="1609920574858" duration="635000" />
+      <workItem from="1610558478882" duration="1267000" />
+      <workItem from="1610800974999" duration="599000" />
+      <workItem from="1611481652543" duration="597000" />
     </task>
     <servers />
   </component>
@@ -107,6 +110,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/UnderstandlyJSBackend$UnderstandlyJSBackend.coverage" NAME="UnderstandlyJSBackend Coverage Results" MODIFIED="1609009420912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/UnderstandlyJSBackend$UnderstandlyJSBackend.coverage" NAME="UnderstandlyJSBackend Coverage Results" MODIFIED="1610800976520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

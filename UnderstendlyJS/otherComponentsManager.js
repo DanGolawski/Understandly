@@ -15,6 +15,9 @@ class OtherComponentsManager {
         this.contactButton = document.querySelector('#contactComponent');
         this.retryButton = document.querySelector('#retryComponent');
         this.manageButtons();
+        this.manageSatelites();
+        window.addEventListener('resize', () => this.manageSatelites());
+
     }
 
     manageButtons() {
@@ -48,6 +51,24 @@ class OtherComponentsManager {
             this.contactButton.style.visibility = 'hidden';
             this.retryButton.style.visibility = 'hidden';
         }, 1000);
+    }
+
+    manageSatelites() {
+        const satelites = document.querySelectorAll('.satelite');
+        const startButton = document.querySelector('#startButton');
+        satelites.forEach((satelite, satIdx) => {
+            const coords = this.getSateliteCoords(startButton, satelite, satIdx);
+            satelite.style.marginLeft = `${coords.x}px`;
+            satelite.style.top = `${coords.y}px`;
+        });
+    }
+
+    getSateliteCoords(reference, satelite, satIdx) {
+        const coords = {};
+        const refCoords = reference.getBoundingClientRect();
+        coords.x = satIdx % 2 === 0 ? (refCoords.left - satelite.offsetWidth - 10) : (refCoords.right + 10);
+        coords.y = Math.random() * satelite.offsetHeight + satIdx * satelite.offsetHeight;
+        return coords;
     }
 
 }
