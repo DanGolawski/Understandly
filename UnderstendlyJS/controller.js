@@ -6,7 +6,7 @@ class Controller {
     questionComponent;
     bertService;
     textToProcess;
-
+    historyManager;
 
     constructor(appContainer) {
         this.appContainer = appContainer;
@@ -18,6 +18,7 @@ class Controller {
         this.uploadComponent = new UploadComponent(document.querySelector('#uploadComponent'), this);
         this.questionComponent = new QuestionComponent('#questionComponent', this);
         this.bertService = new BertService();
+        this.historyManager = new HistoryManager();
     }
 
     // called by OtherComponentsManager
@@ -27,6 +28,8 @@ class Controller {
 
     // called by UploadComponent
     handleTextUpload(text) {
+        this.moveElementsToTheRight();
+        this.otherComponentsManager.showText(text);
         this.textToProcess = text;
         this.questionComponent.start();
     }
@@ -37,7 +40,7 @@ class Controller {
         answersPromise.then(answers => {
             console.log(answers)
             if (answers.length > 0) {
-                this.showAnswer(answers[0].text);
+                this.showAnswer(question, answers[0].text);
 
             } else {
                 this.findAlternativeAnswer(question);
@@ -47,18 +50,27 @@ class Controller {
 
     findAlternativeAnswer(question) {
         this.bertService.getAlternativeAnswer(question, this.textToProcess).then(answer => {
-            this.showAnswer(answer);
+            this.showAnswer(question, answer);
             alert('There is no certainty this is correct answer')
         }).catch(error => alert(`An error occured. Please try again. Error message : ${error}`));
     }
 
-    showAnswer(answer) {
+    showAnswer(question, answer) {
+        this.historyManager.saveResult(question, answer);
+        this.otherComponentsManager.highlightText(answer);
         this.questionComponent.showAnswer(answer);
         this.otherComponentsManager.showRetryButton();
     }
 
     // called by OtherComponentsManager
     retry() {
+        this.otherComponentsManager.resetText();
         this.questionComponent.start();
+    }
+
+    moveElementsToTheRight() {
+        document.querySelectorAll('.circleComponent').forEach(component => {
+            component.classList.add('circleRight');
+        });
     }
 }

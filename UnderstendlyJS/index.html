@@ -17,11 +17,17 @@
     <script src="uploadComponent.js"></script>
     <script src="questionComponent.js"></script>
     <script src="bertService.js"></script>
+    <script src="historyManager.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <div id="indexContainer">
+
+        <div id="textContainer"></div>
+
         <!-- START CIRCLE -->
         <div id="startButton" class="circleComponent">
             <div class="circleComponentIcon">
@@ -38,7 +44,7 @@
         <!-- QUESTION CIRCLE -->
         <div id="questionComponent" class="circleComponent">
             <div id="subContainer" class="circleComponentIcon">
-                <input type="text" id="questionField" autocomplete="off" placeholder="Your Question">
+                <input type="text" id="questionField" autocomplete="off" placeholder="Your Question" spellcheck="false">
                 <h1 id="answerField" class="textField"></h1>
             </div>
             <div class="circleComponentIcon loadingIcon" id="questionLoadingIcon"></div>
@@ -56,8 +62,17 @@
             <span id="description"></span>
         </div>
 
-        <div class="satelite" id="retryComponent">
+        <div id="retryComponent">
             <span id="description"></span>
+        </div>
+
+        <div id="historyComponent"></div>
+        <!-- because of CSS + operator history container must be behind history component -->
+        <div id="historyContainer">
+            <h2>YOUR QUESTIONS :</h2>
+            <!-- <p class="question"></p>
+            <p class="answer"></p> -->
+            <div id="nextButton"></div>
         </div>
 
     </div>

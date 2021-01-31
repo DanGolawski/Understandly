@@ -6,6 +6,7 @@ class OtherComponentsManager {
     aboutButton;
     contactButton;
     retryButton;
+    textContainer;
 
     constructor(controller) {
         this.appController = controller;
@@ -17,7 +18,7 @@ class OtherComponentsManager {
         this.manageButtons();
         this.manageSatelites();
         window.addEventListener('resize', () => this.manageSatelites());
-
+        this.textContainer = document.querySelector('#textContainer');
     }
 
     manageButtons() {
@@ -69,6 +70,31 @@ class OtherComponentsManager {
         coords.x = satIdx % 2 === 0 ? (refCoords.left - satelite.offsetWidth - 10) : (refCoords.right + 10);
         coords.y = Math.random() * satelite.offsetHeight + satIdx * satelite.offsetHeight;
         return coords;
+    }
+
+    showText(text) {
+        this.textContainer.innerHTML = text;
+        this.textContainer.style.opacity = 1;
+        const historyButton = document.querySelector('#historyComponent');
+        historyButton.style.visibility = 'visible';
+        historyButton.style.opacity = 1;
+    }
+
+    highlightText(answer) {
+        let text = this.textContainer.innerHTML;
+        text = text.replace(answer, `<span id="highlighted" class='highlight'>${answer}</span>`);
+        this.textContainer.innerHTML = text;
+        this.textContainer.scroll({
+            top: document.querySelector('#highlighted').offsetTop,
+            behavior: 'smooth'
+        });
+    }
+
+    resetText() {
+        const regex = /(<([^>]+)>)/ig;
+        let text = this.textContainer.innerHTML;
+        text = text.replace(regex, '');
+        this.textContainer.innerHTML = text;
     }
 
 }

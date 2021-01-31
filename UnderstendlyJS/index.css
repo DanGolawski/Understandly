@@ -1,6 +1,11 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+} 
+
+body {
+    overflow: hidden;
 }
 
 #indexContainer {
@@ -11,7 +16,7 @@
 }
 
 #startButton {
-    z-index: 2;
+    z-index: 11;
     transition: visibility 1s;
     transition: visibility 1s, opacity 1s;
     -webkit-transition: visibility 1s, opacity 1s;
@@ -36,6 +41,16 @@
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+    z-index: 10;
+}
+
+.circleRight {
+    margin-right: 5vw;
+    margin-left: 65vw;
 }
 
 .circleComponentIcon {
@@ -133,6 +148,44 @@
     border-right: 0;
 }
 
+#textContainer {
+    position: absolute;
+    width: 54vw;
+    height: 80vh;
+    left: 5vw;
+    top: 10vh;
+    opacity: 0;
+    z-index: 5;
+    padding-right: 1vw;
+    color: white;
+    font-size: 2em;
+    overflow-y: scroll;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+}
+
+html {
+    --scrollbarBG: rgba(250, 250, 250, 0.1);
+    --thumbBG: white;
+}
+#textContainer::-webkit-scrollbar {
+    width: 11px;
+}
+#textContainer {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+#textContainer::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+}
+#textContainer::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+}
+
 .satelite {
     position: absolute;
     width: 10vw;
@@ -168,14 +221,113 @@
 }
 
 #retryComponent {
+    position: absolute;
+    width: 10vw;
+    height: 10vw;
+    background: white;
+    border-radius: 50%;
+    transition: visibility 1s, opacity 1s;
+    -webkit-transition: visibility 1s, opacity 1s;
+    -moz-transition: visibility 1s, opacity 1s;
+    -o-transition: visibility 1s, opacity 1s;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     visibility: hidden;
+    top: 1vw;
+    right: 1vw;
     background: url('./resources/retry.JPG');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-@media (max-width: 1100px) {
+#historyComponent {
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    background-color: white;
+    border-radius: 50%;
+    transition: visibility 1s, opacity 1s;
+    -webkit-transition: visibility 1s, opacity 1s;
+    -moz-transition: visibility 1s, opacity 1s;
+    -o-transition: visibility 1s, opacity 1s;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    visibility: hidden;
+    opacity: 0;
+    bottom: 1vw;
+    left: 1vw;
+    background: url('./resources/historywhite.JPG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#historyComponent:hover + #historyContainer {
+    clip-path:circle(100%);
+}
+
+#historyContainer {
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: white;
+    z-index: 20;
+    border-top-right-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    transition: all 1s;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    clip-path:circle(0 at 1% 99%);
+    font-size: 2em;
+    color: #196eff;
+}
+
+#historyContainer:hover {
+    clip-path: circle(100%);
+}
+
+#historyContainer > h2 {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+#historyContainer > .question {
+    font-weight: bold;
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+#historyContainer > .answer {
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+#historyContainer > #nextButton {
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+    bottom: 10%;
+    right: 10%;
+    padding: 1vh;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background: url('./resources/next.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.highlight {
+    background-color: green;
+}
+
+@media (max-width: 700px) {
     .circleComponent {
       width: 70vw;
       height: 70vw;
